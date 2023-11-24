@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <form action="/submit-form" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="interests">Interests:</label><br>
+        <input type="checkbox" id="interest1" name="interest1" value="Programming">
+        <label for="interest1"> Programming</label><br>
+        <input type="checkbox" id="interest2" name="interest2" value="Cybersecurity">
+        <label for="interest2"> Cybersecurity</label><br>
+        <input type="checkbox" id="interest3" name="interest3" value="Networking">
+        <label for="interest3"> Networking</label><br><br>
+
+        <label>Género:</label>
+        <input type="radio" id="masculino" name="genero" value="Masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="femenino" name="genero" value="Femenino">
+        <label for="femenino">Femenino</label><br><br>
+    </form>
+        <button onclick="Guardar()">
+            Guardar
+        </button>
+        <button onclick="Mostrar()">
+            Mostrar
+        </button>
+    
+    <script>
+        let cookies
+        let JSONCookie
+        let GuardarNombre = document.getElementById('name').value;
+        let GuardarEmail = document.getElementById('email').value;
+        let GuardarInterest = document.getElementById('interest1').checked;
+        let GuardarInterest2 = document.getElementById('interest3').checked;
+        let GuardarInterest3 = document.getElementById('interest2').checked;
+        let GuardarGenero = 'Otro'
+
+        function Guardar() {
+            GuardarNombre = document.getElementById('name').value;
+            GuardarEmail = document.getElementById('email').value;
+            GuardarInterest = document.getElementById('interest1').checked;
+            GuardarInterest2 = document.getElementById('interest3').checked;
+            GuardarInterest3 = document.getElementById('interest2').checked;
+            GuardarGenero = document.querySelector('input[name="genero"]:checked').value;
+            cookies = ' Nombre: ' + GuardarNombre + ' Email: ' +GuardarEmail + ' Programa: '+GuardarInterest + ' Ciberseguridad: '+GuardarInterest2 + ' Redes: '+GuardarInterest3+' Genero: '+GuardarGenero
+            console.log(cookies)
+            alert('Datos guardados')
+            JSONCookie= JSON.stringify(cookies)
+            document.cookie= JSONCookie
+            
+        }
+        function Mostrar() {
+            alert('Datos: \n'+document.cookie);
+        }
+
+    </script>
+</body>
+
+</html>
