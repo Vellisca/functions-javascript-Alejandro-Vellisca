@@ -7,14 +7,12 @@ let num=sc("Escribe el ultimo valor --> ")
 let soluciónposi=0;
 let soluciónnega =0;
 let ac = cuadrado*num
-let raiz =(Math.sqrt(Math.pow(x,2)) - (4*ac))
+let raiz =(Math.sqrt(Math.pow(x,2) - (4*ac)))
+
 if (Number(cuadrado) && Number(x) && Number(num)) {
-    soluciónposi = -x + raiz/(2*cuadrado)
-    soluciónnega = -x - raiz/(2*cuadrado)
-
+    soluciónposi = (-x + raiz)/(2*cuadrado)
+    soluciónnega = (-x - raiz)/(2*cuadrado)
     console.log("Las soluciones son: "+soluciónnega +" y "+soluciónposi);
-
-
 }
 else{
    console.log("Tienes que escribir números")
